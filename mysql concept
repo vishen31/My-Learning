@@ -1,0 +1,71 @@
+Command to connect with mysql
+=============================
+Mysql Concept  : - mysql concept is quite different from oracle db and ms sql server . We have server instance concept in mysql which connect on single port and hostname . We can create serveral database on single instance in mysql db which is listening on single port and hostname . As compare to oracle db  , we have seperate instance created and associated each database . In nutshell , every instance is associated with db and each database is listening on seperate port . 
+
+Apart from this , we can create as many user to connect withmysql database ;
+
+We can assume that each schema/user in Oracle is similar to database concept of mysql . 
+
+To access the mysql database , we need to install mysql cliet binaries and run the below command to connect with mysql instance .
+
+1.)  Command to connect mysql instance .
+neeraj_protocol@cloudshell:~ (green-objective-203811)$ mysql -h  35.200.231.7 -u neeraj -p
+mysql -h 35.200.231.7 -u neeraj -p
+-h = hostname
+-u = username 
+-p = password
+
+2.) List the Mysql Database
+---------------------------
+MySQL [(none)]> show databases ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| orcl               |
+| performance_schema |
++--------------------+
+
+
+3.) Connect with Database
+MySQL [(none)]> use orcl
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+Database changed
+
+
+4.) Check user and curent date 
+MySQL [orcl]> SELECT  USER() , CURRENT_DATE;
++-----------------------+--------------+
+| USER()                | CURRENT_DATE |
++-----------------------+--------------+
+| neeraj@35.197.149.131 | 2018-05-28   |
++-----------------------+--------------+
+
+
+5.) use help command to explore all option 
+MySQL [orcl]> help
+
+
+6.) Common Mysql Command .
+
+use orcl
+
+SHOW TABLES;
+
+CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20),species VARCHAR(20), sex CHAR(1), birth DATE, death DATE);
+
+SHOW TABLES;
+
+DESCRIBE pet;
+
+create table test (name varchar(20) , salary varchar(10)) 
+
+INSERT INTO pet VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL);
+
+select * from pet ;
+
+SELECT  USER() , CURRENT_DATE;
+
+
